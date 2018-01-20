@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,7 @@ namespace Backend
                 }
 
                 JArray result = JArray.Parse(await response.Content.ReadAsStringAsync());
+                
                 IList<JToken> results = result[0]["result"].Children().ToList();
 
                 List<string> tree = new List<string>();

@@ -15,7 +15,7 @@ namespace UI
     {
         public TreeItem root { get; set; }
         public Form1()
-        {            
+        {
             InitializeComponent();
         }
 
@@ -44,14 +44,25 @@ namespace UI
 
             for (int i = 0; i < item.Children.Count; i++)
             {
-                LoadItem(item.Children[i], nodes[nodes.Count -1].Nodes);
+                LoadItem(item.Children[i], nodes[nodes.Count - 1].Nodes);
             }
         }
 
-        private void btnAnalyze_Click(object sender, EventArgs e)
+        private async void btnAnalyze_Click(object sender, EventArgs e)
         {
-            root = new TreeItem(txtBox.Text);
+            root = new TreeItem();
+            Cursor.Current = Cursors.WaitCursor;
+            try
+            {
+                await root.LoadFromSentence(txtBox.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error analyzing text", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             LoadTree();
+            Cursor.Current = Cursors.Default;
+            ItemTree.ExpandAll();
         }
     }
 }

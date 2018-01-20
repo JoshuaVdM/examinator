@@ -17,23 +17,21 @@ namespace Backend
             Children = new List<TreeItem>();
         }
 
-        public TreeItem(string sentence)
+        public async Task LoadFromSentence(string sentence)
         {
-            Children = new List<TreeItem>();
             Linguistics linguistics = new Linguistics();
-            Task.Run(async () =>
+
+            List<string> d = await linguistics.analyze(sentence);
+
+            foreach (string tree in d)
             {
-                List<string> d = await linguistics.analyze(sentence);
+                Children.AddRange(GetChildren(tree));
+            }
 
-                foreach (string tree in d)
-                {
-                    Children.AddRange(GetChildren(tree));
-                }
-
-                Tag = "ROOT";
-
-            }).GetAwaiter().GetResult();
+            Tag = "ROOT";
         }
+
+
         public TreeItem(string tag, string value)
         {
             Tag = tag;
