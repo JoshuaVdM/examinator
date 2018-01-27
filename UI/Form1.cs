@@ -56,8 +56,11 @@ namespace UI
             try
             {
                 await root.LoadFromSentence(txtBox.Text);
-                txtSubject.Text = root.Children[0].Children[0].findPhraseInSentence("NP").toReadableString();
-                txtVerbPhrase.Text = root.Children[0].Children[0].findPhraseInSentence("VP").toReadableString();
+                txtSubject.Text = root.Children[0].Children[0].NounPhrase.toReadableString();
+                txtVerbPhrase.Text = root.Children[0].Children[0].VerbPhrase.toReadableString();
+                QuestionAndAnswer qa = root.Children[0].Children[0].GetQuestionAndAnswer();
+                txtQuestion.Text = qa.Question;
+                txtAnswer.Text = qa.Answer;
             }
             catch (Exception ex)
             {

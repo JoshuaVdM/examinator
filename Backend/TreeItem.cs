@@ -11,6 +11,8 @@ namespace Backend
         public string Tag { get; set; }
         public List<TreeItem> Children { get; set; }
         public string Value { get; set; }
+        public TreeItem NounPhrase { get; set; }
+        public TreeItem VerbPhrase { get; set; }
 
         public TreeItem()
         {
@@ -31,20 +33,35 @@ namespace Backend
             Tag = "ROOT";
         }
 
-        public bool itemIsSubject()
+        public QuestionAndAnswer GetQuestionAndAnswer()
         {
-            if (Tag == "NN"
-                || Tag == "NNP"
-                || Tag == "NNPS"
-                || Tag == "NNS"
-                || Tag == "PRP"
-                || Tag == "DT")
+            StringBuilder question = new StringBuilder();
+            StringBuilder answer = new StringBuilder();
+            if (NounPhrase == null || VerbPhrase == null)
             {
-                return true;
+                return null;
             }
-            return false;
+            foreach (TreeItem item in VerbPhrase.Children)
+            {
+                if (item.Tag == "VBP")
+                {
+                    if (item.Value == "am")
+                    {
+                        question.Append("What am I");
+                    } else if (item.Value == "are")
+                    {
+                        question.Append("What are you");
+                    }
+                } else if (item.Tag == "NP")
+                {
+                    answer.Append(item.toReadableString());
+                }
+            }
+            QuestionAndAnswer qa = new QuestionAndAnswer();
+            qa.Question = question.ToString();
+            qa.Answer = answer.ToString();
+            return qa;
         }
-
 
         public TreeItem findPhraseInSentence(string tag)
         {
@@ -119,6 +136,8 @@ namespace Backend
                 {
                     i.Children = gchildren;
                 }
+                i.NounPhrase = i.findPhraseInSentence("NP");
+                i.VerbPhrase = i.findPhraseInSentence("VP");
                 items.Add(i);
             }
             return items;

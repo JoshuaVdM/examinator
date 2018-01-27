@@ -37,6 +37,10 @@
             this.lblSubject = new System.Windows.Forms.Label();
             this.txtVerbPhrase = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtQuestion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtAnswer = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +80,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtAnswer);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtQuestion);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtVerbPhrase);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtSubject);
@@ -123,6 +131,42 @@
             this.label1.Text = "Verb phrase";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // txtQuestion
+            // 
+            this.txtQuestion.Enabled = false;
+            this.txtQuestion.Location = new System.Drawing.Point(76, 83);
+            this.txtQuestion.Name = "txtQuestion";
+            this.txtQuestion.Size = new System.Drawing.Size(466, 20);
+            this.txtQuestion.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Question";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtAnswer
+            // 
+            this.txtAnswer.Enabled = false;
+            this.txtAnswer.Location = new System.Drawing.Point(76, 110);
+            this.txtAnswer.Name = "txtAnswer";
+            this.txtAnswer.Size = new System.Drawing.Size(466, 20);
+            this.txtAnswer.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 113);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Answer";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnAnalyze;
@@ -155,6 +199,10 @@
         private System.Windows.Forms.TextBox txtSubject;
         private System.Windows.Forms.TextBox txtVerbPhrase;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtAnswer;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtQuestion;
+        private System.Windows.Forms.Label label2;
     }
 }
 
