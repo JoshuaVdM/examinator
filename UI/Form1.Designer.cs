@@ -32,13 +32,19 @@
             this.txtBox = new System.Windows.Forms.TextBox();
             this.lblInfo = new System.Windows.Forms.Label();
             this.btnAnalyze = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSubject = new System.Windows.Forms.TextBox();
+            this.lblSubject = new System.Windows.Forms.Label();
+            this.txtVerbPhrase = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ItemTree
             // 
-            this.ItemTree.Location = new System.Drawing.Point(583, 12);
+            this.ItemTree.Location = new System.Drawing.Point(583, 205);
             this.ItemTree.Name = "ItemTree";
-            this.ItemTree.Size = new System.Drawing.Size(549, 608);
+            this.ItemTree.Size = new System.Drawing.Size(549, 415);
             this.ItemTree.TabIndex = 0;
             // 
             // txtBox
@@ -68,12 +74,62 @@
             this.btnAnalyze.UseVisualStyleBackColor = true;
             this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtVerbPhrase);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtSubject);
+            this.groupBox1.Controls.Add(this.lblSubject);
+            this.groupBox1.Location = new System.Drawing.Point(584, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(548, 187);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Text parameters";
+            // 
+            // txtSubject
+            // 
+            this.txtSubject.Enabled = false;
+            this.txtSubject.Location = new System.Drawing.Point(76, 29);
+            this.txtSubject.Name = "txtSubject";
+            this.txtSubject.Size = new System.Drawing.Size(466, 20);
+            this.txtSubject.TabIndex = 1;
+            // 
+            // lblSubject
+            // 
+            this.lblSubject.AutoSize = true;
+            this.lblSubject.Location = new System.Drawing.Point(6, 32);
+            this.lblSubject.Name = "lblSubject";
+            this.lblSubject.Size = new System.Drawing.Size(43, 13);
+            this.lblSubject.TabIndex = 0;
+            this.lblSubject.Text = "Subject";
+            this.lblSubject.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtVerbPhrase
+            // 
+            this.txtVerbPhrase.Enabled = false;
+            this.txtVerbPhrase.Location = new System.Drawing.Point(76, 56);
+            this.txtVerbPhrase.Name = "txtVerbPhrase";
+            this.txtVerbPhrase.Size = new System.Drawing.Size(466, 20);
+            this.txtVerbPhrase.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 59);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Verb phrase";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Form1
             // 
             this.AcceptButton = this.btnAnalyze;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1144, 632);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAnalyze);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.txtBox);
@@ -81,6 +137,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,6 +150,11 @@
         private System.Windows.Forms.TextBox txtBox;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Button btnAnalyze;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblSubject;
+        private System.Windows.Forms.TextBox txtSubject;
+        private System.Windows.Forms.TextBox txtVerbPhrase;
+        private System.Windows.Forms.Label label1;
     }
 }
 

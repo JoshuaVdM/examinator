@@ -21,6 +21,7 @@ namespace UI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            txtBox.Select();
         }
 
         private void LoadTree()
@@ -55,6 +56,8 @@ namespace UI
             try
             {
                 await root.LoadFromSentence(txtBox.Text);
+                txtSubject.Text = root.Children[0].Children[0].findPhraseInSentence("NP").toReadableString();
+                txtVerbPhrase.Text = root.Children[0].Children[0].findPhraseInSentence("VP").toReadableString();
             }
             catch (Exception ex)
             {

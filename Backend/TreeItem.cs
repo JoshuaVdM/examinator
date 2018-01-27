@@ -31,6 +31,39 @@ namespace Backend
             Tag = "ROOT";
         }
 
+        public bool itemIsSubject()
+        {
+            if (Tag == "NN"
+                || Tag == "NNP"
+                || Tag == "NNPS"
+                || Tag == "NNS"
+                || Tag == "PRP"
+                || Tag == "DT")
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+        public TreeItem findPhraseInSentence(string tag)
+        {
+            if (Tag != "S")
+            {
+                return null;
+            }
+            else
+            {
+                foreach (TreeItem item in Children)
+                {
+                    if (item.Tag == tag)
+                    {
+                        return item;
+                    }
+                }
+            }
+            return null;
+        }
 
         public TreeItem(string tag, string value)
         {
@@ -108,7 +141,17 @@ namespace Backend
             sb.Append($"Tag: {Tag}, value: {Value}\n");
             sb.Append($"Children: {Children.Count}");
             return sb.ToString();
+        }
 
+        public string toReadableString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(String.IsNullOrEmpty(Value) ? "" : Value + " ");
+            foreach (TreeItem item in Children)
+            {
+                sb.Append(item.toReadableString());
+            }
+            return sb.ToString();
         }
     }
 }

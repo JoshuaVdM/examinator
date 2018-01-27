@@ -33,6 +33,7 @@ namespace TextAnalyticsApi
 
             }).GetAwaiter().GetResult();
         }
+
         public TreeItem(string tag, string value)
         {
             Tag = tag;
